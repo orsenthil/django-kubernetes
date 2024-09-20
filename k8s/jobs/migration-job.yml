@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: migration-container
-          image: mukulmantosh/django-kubernetes:1.0
+          image: skumaran/django-kubernetes:1.0
           command: ['python', 'manage.py', 'migrate']
           imagePullPolicy: Always
           envFrom:

@@ -18,7 +18,7 @@ spec:
           persistentVolumeClaim:
             claimName: staticfiles-pvc
       containers:
-        - image: mukulmantosh/django-kubernetes:1.0
+        - image: skumaran/django-kubernetes:1.0
           imagePullPolicy: Always
           name: django-app-container
           envFrom:
@@ -26,6 +26,10 @@ spec:
                 name: app-cm
           ports:
             - containerPort: 8000
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
           volumeMounts:
             - mountPath: "/data/static"
               name: staticfiles
